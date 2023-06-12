@@ -11,14 +11,16 @@ face_cascade = cv2.CascadeClassifier('C:/Users/ferja/Desktop/haarcascade_frontal
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     st.title("Face Detection using Viola-Jones Algorithm")
-    st.write("Try to stay in front of the WebCam, please")
-    st.write("Press the button below to start detecting faces from your webcam")
+
     color = st.color_picker("Please select a color of the rectangles drawn around the detected faces", "#FF0000")
     rgb_color = tuple(int(color[i:i + 2], 16) for i in (1, 3, 5))
     st.write("Selected RGB color:", rgb_color)
     minNeighbor=st.slider("Select the minNeighbor ",1,10)
     scaleFactor = st.slider("Select the scaleFactor ", 1.1, 2.0, 1.1, 0.1)
 
+    st.subheader("Instructions:")
+    st.write("Try to stay in front of the WebCam, please")
+    st.write("Press the button below to start detecting faces from your webcam")
     # Add a button to start detecting faces
     if st.button("Detect Faces"):
         # Call the detect_faces function
